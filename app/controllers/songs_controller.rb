@@ -3,7 +3,7 @@ class SongsController < ApplicationController
 
   def index
     if params[:artist_id]
-      @artist = Artist.find(params[:artist_id]).songs
+      @artist = Artist.find_by(id: params[:artist_id]).songs
     else
       flash[:alert] = "Artist not found."
       redirect_to artist
